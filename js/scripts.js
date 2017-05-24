@@ -2,33 +2,85 @@
 
 $(document).ready(()=>{
 
+	const weatherApi = 'http://api.openweathermap.org/data/2.5/weather';
+
+	$('#weather-form').submit((event)=>{
+		event.preventDefault();
+		var zipCode = $('#zip-code').val();
+		var weatherUrl = `${weatherApi}?zip=${zipCode},us&units=imperial&appid=${apiKey}`;
+		// console.log(weatherUrl);
+
+		$.getJSON(weatherUrl, (weatherData)=>{
+			var currTemp = weatherData.main.temp;
+			var temps = {
+				curr: weatherData.main.temp,
+				max: weatherData.main.temp_max,
+				min: weatherData.main.temp_min,
+			}
+			var name = weatherData.name;
+			var icon = weatherData.weather[0].icon;
+			// var newHTML = `<img src='http://openweathermap.org/img/w/${icon}.png'>`
+			// newHTML += `<div>The temp in ${name} is currently ${currTemp}&deg;</div>`
+			// $('#temp-info').html(newHTML);
+			currentPercent = 0;
+			animateCircle(0,currTemp);
+		})
+	})
+
 	var canvas = $('#weather-canvas');
 	var context = canvas[0].getContext('2d');	
 
 	var assumedTemperature = 65;
-	var currenPercent = 0;
+	var currentPercent = 0;
 
-	function animateCircle(currentArc){
+	function animateCircle(currentArc,currentTemp){
+		context.clearRect(0,0,500,500);
 		// Draw inner circle
-		context.fillStyle = '#ccc';
 		context.beginPath();
+		context.fillStyle = '#3B8EA5';
 		context.arc(155,100,70,Math.PI*0,Math.PI*2);
 		context.closePath();
 		context.fill()
-
 		// draw outter line
-		context.lineWidth = 5;
-		context.strokeColor = '#ffff00';
 		context.beginPath();
-		context.arc(155,100,75,Math.PI*1.5,(Math.PI * 2 * currentArc) + Math.PI * 1.5);
+		context.lineWidth = 5;
+		context.strokeStyle = '#F5EE9E';
+		context.arc(155,100,70,Math.PI * 0,Math.PI * 2);
 		context.stroke();
-		currenPercent++
-		if (currenPercent < assumedTemperature){
+		context.closePath();
+		// draw temp text
+		context.font = '30px Arial';
+		context.fillStyle = '#F5EE9E';
+		context.beginPath();
+		context.fillText(Math.floor(currentTemp) + String.fromCharCode(176),135,110);
+		context.closePath();
+		// draw temp line
+		context.beginPath();
+		context.lineWidth = 10;
+		context.strokeStyle = getBarColor(currentPercent);
+		context.arc(155,100,60,Math.PI*1.5,(Math.PI * 2 * currentArc) + Math.PI * 1.5);
+		context.stroke();
+		context.closePath();
+		currentPercent++
+		if (currentPercent < currentTemp){
 			requestAnimationFrame(()=>{
-				animateCircle(currenPercent / 100);
+				animateCircle(currentPercent / 100,currentTemp);
 			})
 		}	
 	}
-	animateCircle();
+
+	function getBarColor(percent){
+		var barColor = '#78C0E0';
+		if (percent >50 && percent <= 70){
+			barColor = '#96E072';
+		}else if (percent > 70 && percent < 80){
+			barColor = '#F5EE9E';
+		}else if (percent >=80 && percent < 90) {
+			barColor = '#F49E4C';
+		}else if (percent >= 90 && percent <= 150){
+			barColor = '#D00000';
+		}
+		return barColor;
+	}
 
 })
