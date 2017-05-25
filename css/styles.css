@@ -175,7 +175,7 @@
 }
 
 .description-wrapper{
-	min-height: 100px;
+	min-height: 75px;
 	margin-top: 20px;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #cacaca;
@@ -209,6 +209,13 @@
 
 .bottom-row{
 	height: 25%;
+	padding-right: 25px;
+}
+
+.day{
+	border: 1px solid #cacaca;
+	min-height: 75px;
+	margin-bottom: 15px;
 }
 
 body{
