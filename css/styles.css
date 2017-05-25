@@ -8,7 +8,8 @@
 	margin-top: 15px;
 	margin-left: 15px;
 	position: absolute;
-
+	top: 117px;
+	left: 436px;
 }
 
 .circles{
@@ -20,8 +21,6 @@
 	left: 100px;
 	z-index: -1;
 }
-
-
 
 #outter-circle{
 	height: 400px;
@@ -148,7 +147,69 @@
 	z-index: -2;
 }
 
+/* form{
+	position: relative;
+	top: 169px;
+	left: 334px;
+} */
 
+.top-row{
+	height: 75%;
+}
+
+.city-row{
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.city-name{
+	height: 50px;
+	color: white;
+	font-size: 40px;
+	border-bottom: 1px solid #cacaca;
+}
+
+.icon{
+	height: 75px;
+	margin-top: 30px;
+}
+
+.description-wrapper{
+	min-height: 100px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #cacaca;
+}
+
+.description{
+	height: 20px;
+	color: white;
+	font-size: 20px;
+	margin-top: 0px;
+	line-height: 20px;
+	/* font-weight: bold; */
+	/* border-bottom: 1px solid #cacaca; */
+}
+
+.humidity,.wind,.date{
+	height: 15px;
+	color: white;
+	font-size: 12px;
+	line-height: 15px;
+	/* border-bottom: 1px solid #cacaca; */
+}
+
+.date{
+	margin-left: 20px;
+}
+
+.wind{
+	margin-top: 20px;
+}
+
+.bottom-row{
+	height: 25%;
+}
 
 body{
 	background-color: #CEE5F2;

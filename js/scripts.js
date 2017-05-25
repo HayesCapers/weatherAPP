@@ -11,6 +11,7 @@ $(document).ready(()=>{
 		// console.log(weatherUrl);
 
 		$.getJSON(weatherUrl, (weatherData)=>{
+			console.log(weatherData)
 			var currTemp = weatherData.main.temp;
 			var temps = {
 				curr: weatherData.main.temp,
@@ -18,7 +19,22 @@ $(document).ready(()=>{
 				min: weatherData.main.temp_min,
 			}
 			var name = weatherData.name;
+			var humidity = weatherData.main.humidity;
 			var icon = weatherData.weather[0].icon;
+			var iconHTML = `<img src="./icons/PNG/${icon}.png">`;
+			var weatherDesc = weatherData.weather[0].description;
+			var windInt = weatherData.wind.deg;
+			var windDirection = degToCompass(windInt);
+			var windSpeed = weatherData.wind.speed;
+			var date = new Date();
+			var currDate = date.toDateString();
+			// console.log(date.toDateString());
+			$('.city-name').html(`${name}<span class="date"></span>`);
+			$('.icon').html(iconHTML);
+			$('.date').html(currDate);
+			$('.description').html(weatherDesc.charAt(0).toUpperCase() + weatherDesc.slice(1));
+			$('.wind').html(`${windSpeed}mph ${windDirection}`)
+			$('.humidity').html(`Humidity: ${humidity}%`);
 			// var newHTML = `<img src='http://openweathermap.org/img/w/${icon}.png'>`
 			// newHTML += `<div>The temp in ${name} is currently ${currTemp}&deg;</div>`
 			// $('#temp-info').html(newHTML);
@@ -83,4 +99,40 @@ $(document).ready(()=>{
 		return barColor;
 	}
 
+	function degToCompass(num) {
+    	var val = Math.floor((num / 22.5) + 0.5);
+    	var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+    	return arr[(val % 16)];
+	}
+
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
