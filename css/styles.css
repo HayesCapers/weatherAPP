@@ -1,8 +1,84 @@
 
-.wrapper{
-	position: relative;
+
+.shine-wrapper{
+	/* position: absolute; */
+	transform: rotate(40deg);
+	height: 50px;
+	width: 50px;
 }
 
+#cloud1{
+	position: absolute;
+	top: 100px;
+	left: -20%;
+	z-index: -5;
+	animation: cloudsmove 200s infinite;
+}
+
+#cloud2{
+	position: absolute;
+	top: 200px;
+	left: -20%;
+	z-index: -5;
+	animation: cloudsmove2 200s infinite;
+}
+
+#cloud5{
+	position: absolute;
+	top: 400px;
+	left: -20%;
+	z-index: -5;
+	animation: cloudsmove5 200s infinite;
+}
+
+#cloud3{
+	position: absolute;
+	top: 25px;
+	left: -20%;
+	z-index: -5;
+	animation: cloudsmove3 150s infinite;
+}
+
+#cloud4{
+	position: absolute;
+	top: 500px;
+	left: -20%;
+	z-index: -5;
+	animation: cloudsmove4 150s infinite;
+}
+
+@keyframes cloudsmove{
+	0% {left: -80%;}
+	100% {left: 180%;}
+}
+
+@keyframes cloudsmove2{
+	0% {left: -20%;}
+	100% {left: 240%;}
+}
+
+@keyframes cloudsmove5{
+	0% {left: -100%;}
+	100% {left: 140%;}
+}
+
+@keyframes cloudsmove3{
+	0% {left: -500%;}
+	100% {left: 250%;}
+}
+
+@keyframes cloudsmove4{
+	0% {left: -250%;}
+	100% {left: 500%;}
+}
+
+.clouds img{
+	max-width: 200px;
+}
+
+.clouds2 img{
+	width: 400px;
+}
 
 #weather-form{
 	margin-top: 15px;
@@ -10,45 +86,95 @@
 	position: absolute;
 	top: 117px;
 	left: 436px;
+	opacity: 0;
+}
+
+.showSearch{
+	animation: showSearch 8.5s forwards;
+}
+
+@keyframes showSearch{
+	0% {opacity: 0;}
+	90% {opacity: 0;}
+	100% {opacity: 1;}
 }
 
 .circles{
 	height: 100vh;
 	width: 100vw;
-	overflow: hidden;
+	/* overflow: hidden; */
 	position: absolute;
-	top: 100px;
-	left: 100px;
+	top: -170px;
+	left: -60px;
 	z-index: -1;
 }
 
 #outter-circle{
-	height: 400px;
-	width: 400px;
+	height: 10px;
+	width: 10px;
 	position: absolute;
+	top: 365px;
+	left: 175px;
 	background-color: #031926; 
 	border-radius: 50%;
-	
+	opacity: 0;
+}
+
+.circleExpand1{
+	animation: circleExpand1 4s forwards;
+}
+
+
+@keyframes circleExpand1{
+	0% {top: 365px; opacity: 0; height: 10px; width: 10px;}
+	25% {top: 365px; opacity: 0; height: 10px; width: 10px;}
+	26% {top: 365px; opacity: 1; height: 10px; width: 10px;}
+	50% {top: 492px; left: 175px; opacity: 1; height: 10px; width: 10px;}
+	100% {top: 265px; left: 133px; opacity: 1; height: 400px; width: 400px}
 }
 
 #inner-circle{
-	height: 300px;
-	width: 300px;
+	height: 0px;
+	width: 0px;
 	position: absolute;
-	top: 50px;
-	left: 0px;
+	top: 450px;
+	left: 271px;
 	background-color: #F5EE9E; 
-	border-radius: 50%
+	border-radius: 50%;
+	
+	/* display: none */
+}
+
+.innerExpand1{
+	animation: innerExpand1 6s forwards;
+}
+
+@keyframes innerExpand1{
+	0%{height: 0px; width: 0px}
+	60%{height: 0px; width: 0px; top: 450px; left: 271px;}
+	100%{height: 300px; width: 300px; top: 313px; left: 136px;}
 }
 
 #inner-circle2{
-	height: 200px;
-	width: 200px;
+	height: 0px;
+	width: 0px;
 	position: absolute;
 	top: 98px;
 	left: 42px;
 	background-color: #031926; 
-	border-radius: 50%
+	border-radius: 50%;
+	
+	/* display: none; */
+}
+
+.innerExpand2{
+	animation: innerExpand2 6s forwards;
+}
+
+@keyframes innerExpand2{
+	0%{height: 0px; width: 0px}
+	60%{height: 0px; width: 0px; top: 450px; left: 271px;}
+	100%{height: 200px; width: 200px; top: 364px; left: 181px;}
 }
 
 #shine{
@@ -60,6 +186,25 @@
 	background-color: white;
 	opacity: .5; 
 	border-radius: 50%
+}
+
+.shine-partner1{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.maskOpen{
+	animation: maskOpen 4s forwards;
+}
+
+@keyframes maskOpen{
+	0% {top: 0px; left: 0px}
+	12% {top: 130px; left: 104px}
+	13% {top: 130px; left: 104px}
+	25% {top: 130px; left: 104px; transform: rotate(0deg)}
+	50% {top: 130px; left: 104px; transform: rotate(0deg)}
+	100% {top: 150px; left: 375px; transform: rotate(-40deg)}
 }
 
 #shine-mask{
@@ -83,6 +228,26 @@
 	border-radius: 50%
 }
 
+.shine-partner2{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	
+}
+
+.maskOpen2{
+	animation: maskOpen2 4s forwards;
+}
+
+@keyframes maskOpen2{
+	0% {top: 0px; left: 0px}
+	12% {top: 92px; left: 72px}
+	13% {top: 92px; left: 72px}
+	25% {top: 130px; left: 104px; transform: rotate(0deg)}
+	50% {top: 130px; left: 104px; transform: rotate(0deg)}
+	100% {top: 150px; left: 375px; transform: rotate(-40deg)}
+}
+
 #shine-mask2{
 	height: 15px;
 	width: 15px;
@@ -102,6 +267,26 @@
 	background-color: white;
 	opacity: .5; 
 	border-radius: 50%
+}
+
+.shine-partner3{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	
+}
+
+.maskOpen3{
+	animation: maskOpen3 4s forwards;
+}
+
+@keyframes maskOpen3{
+	0% {top: 0px; left: 0px}
+	12% {top: 61px; left: 46px}
+	13% {top: 61px; left: 46px}
+	25% {top: 130px; left: 104px; transform: rotate(0deg)}
+	50% {top: 130px; left: 104px; transform: rotate(0deg)}
+	100% {top: 150px; left: 375px; transform: rotate(-40deg)}
 }
 
 #shine-mask3{
@@ -125,6 +310,26 @@
 	border-radius: 50%
 }
 
+.shine-partner4{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	
+}
+
+.maskOpen4{
+	animation: maskOpen4 4s forwards;
+}
+
+@keyframes maskOpen4{
+	0% {top: 0px; left: 0px}
+	12% {top: 35px; left: 22px}
+	13% {top: 35px; left: 22px}
+	25% {top: 130px; left: 104px; transform: rotate(0deg)}
+	50% {top: 130px; left: 104px; transform: rotate(0deg)}
+	100% {top: 150px; left: 375px; transform: rotate(-40deg)}
+}
+
 #shine-mask4{
 	height: 5px;
 	width: 5px;
@@ -137,14 +342,27 @@
 
 .search-wrapper{
 	height: 275px;
-	width: 600px;
+	width: 0px;
 	background-color: #3B8EA5;
 	opacity: .5;
 	position: absolute;
-	top: 169px;
-	left: 334px;
+	top: 172px;
+	left: 316px;
 	border-radius: 15px;
 	z-index: -2;
+	
+	transform: rotate(-45deg);
+}
+
+.searchExpand{
+	animation: searchExpand 8s forwards;
+}
+
+@keyframes searchExpand{
+	0% {width: 0px; transform: rotate(-45deg); top: 172px; left: 316px;}
+	50% {width: 0px; transform: rotate(-45deg); top: 172px; left: 316px;}
+	75% {width: 600px; transform: rotate(-45deg); top: -4px; left: 176px;}
+	100% {width: 600px; transform: rotate(0deg); top: 172px; left: 316px;}
 }
 
 /* form{
@@ -154,7 +372,7 @@
 } */
 
 .top-row{
-	height: 75%;
+	height: 60%;
 }
 
 .city-row{
@@ -172,6 +390,7 @@
 .icon{
 	height: 75px;
 	margin-top: 30px;
+	padding: 0px;
 }
 
 .description-wrapper{
@@ -208,14 +427,21 @@
 }
 
 .bottom-row{
-	height: 25%;
+	height: 40%;
 	padding-right: 25px;
+	overflow: hidden;
+}
+
+.day#day2{
+	margin-left: 180px;
 }
 
 .day{
 	border: 1px solid #cacaca;
-	min-height: 75px;
+	min-height: 150px;
 	margin-bottom: 15px;
+	margin-right: 5px;
+	padding: 0px
 }
 
 body{
@@ -225,8 +451,8 @@ body{
 
 canvas{
 	position: absolute;
-	top: 196px;
-	left: 88px;
+	top: 195px;
+	left: 65px;
 }
 
 label{

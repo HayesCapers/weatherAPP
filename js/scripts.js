@@ -4,6 +4,18 @@ $(document).ready(()=>{
 
 	const weatherApi = 'http://api.openweathermap.org/data/2.5/weather';
 
+	$('.shine-wrapper').click(function(){
+		$('#weather-form').addClass('showSearch');
+		$('#outter-circle').addClass('circleExpand1');
+		$('#inner-circle').addClass('innerExpand1');
+		$('#inner-circle2').addClass('innerExpand2');
+		$('.shine-partner1').addClass('maskOpen');
+		$('.shine-partner2').addClass('maskOpen2');
+		$('.shine-partner3').addClass('maskOpen3');
+		$('.shine-partner4').addClass('maskOpen4');
+		$('.search-wrapper').addClass('searchExpand');
+	});
+
 	$('#weather-form').submit((event)=>{
 		event.preventDefault();
 		var zipCode = $('#zip-code').val();

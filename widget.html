@@ -15,24 +15,43 @@
 <body>
 
 <div class="clouds">
-	<img src="./icons/images/cloud.png">
+	<img src="./icons/images/cloud.png" id="cloud1">
+	<img src="./icons/images/cloud.png" id="cloud2">
+	<img src="./icons/images/cloud.png" id="cloud5">
+</div>
+
+<div class="clouds2">
+	<img src="./icons/images/cloud.png" id="cloud3">
+	<img src="./icons/images/cloud.png" id="cloud4">
 </div>
 
 <div class="wrapper">
 	<div class="circles">
 		<div id="outter-circle"></div>
-		<div id="shine"></div>
-		<div id="shine-mask"></div>
-		<div id="shine2"></div>
-		<div id="shine-mask2"></div>
-		<div id="shine3"></div>
-		<div id="shine-mask3"></div>
-		<div id="shine4"></div>
-		<div id="shine-mask4"></div>
+		<div class="shine-wrapper">
+			<div class="shine-partner1">
+				<div id="shine"></div>
+				<div id="shine-mask"></div>
+			</div>
+			<div class="shine-partner2">
+				<div id="shine2"></div>
+				<div id="shine-mask2"></div>
+			</div>
+			<div class="shine-partner3">
+				<div id="shine3"></div>
+				<div id="shine-mask3"></div>
+			</div>
+			<div class="shine-partner4">
+				<div id="shine4"></div>
+				<div id="shine-mask4"></div>
+			</div>
+		</div>
 		<div id="inner-circle"></div>
 		<div id="inner-circle2"></div>
 	</div>
 
+
+<div class="side-bar-wrapper">
 	<div class="search-wrapper">
 		<div class="row top-row">
 			<div class="row city-row">
@@ -48,7 +67,7 @@
 			</div>
 		</div>
 		<div class="row bottom-row">
-			<div class="col-sm-2 col-sm-offset-4 day" id="day2"></div>
+			<div class="col-sm-2 col-sm-offset-3 day" id="day2"></div>
 			<div class="col-sm-2 day" id="day3"></div>
 			<div class="col-sm-2 day" id="day4"></div>
 			<div class="col-sm-2 day" id="day5"></div>
@@ -56,12 +75,13 @@
 	</div>
 
 
+
 	<form id="weather-form">
 		<!-- <label>Please enter a zip code to search</label> -->
 		<input type="text" id="zip-code" placeholder="30305">
 		<button type="submit" class="btn btn-primary">submit</button>
 	</form>
-
+</div>	
 	<div class="col-sm-12" id="temp-info">
 
 	</div>
